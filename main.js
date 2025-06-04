@@ -222,11 +222,11 @@ let colors = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF", 
 function randomTile(){
     //console.log(allTiles)
     let randomIndex = Math.floor(Math.random() * allTiles.length);
-    let tile = allTiles[randomIndex];
+    let tile = allTiles[randomIndex][0];
     let color = colors[Math.floor(Math.random() * colors.length)];
     while (players.some(player => player[0][0] === tile || player[1] === color)) {
         randomIndex = Math.floor(Math.random() * allTiles.length);
-        tile = allTiles[randomIndex];
+        tile = allTiles[randomIndex][0];
         color = colors[Math.floor(Math.random() * colors.length)];
     }
     //console.log(`Assigned tile: ${tile} with color: ${color}`);
@@ -237,11 +237,17 @@ let players = [];
 let playerCount = 4;
 
 function updateText(text, path) {
-    let troopCount = Math.floor(Math.random() * 100) + 1; // later replace with the actual troop count...
+    let troopCount = 0;
+    for (let i = 0; i < allTiles.length; i++) {
+        if (allTiles[i][0] === path.id) {
+            troopCount = allTiles[i][1];
+            break;
+        }
+    }
     text.textContent = `${path.id} (${troopCount})`;
     text.setAttribute("text-anchor", "middle");
     text.setAttribute("dominant-baseline", "central");
-    text.setAttribute("font-size", "10");
+    text.setAttribute("font-size", `${window.innerWidth / 80}px`);
     text.setAttribute("fill", "black");
 }
 
@@ -250,8 +256,77 @@ function centerText(text, bbox) {
     text.setAttribute("y", bbox.y + bbox.height / 2);
 }
 
+function isBigger(text1, text2) {
+    let b1 = document.getElementById(text1.id).getBBox();
+    let b2 = document.getElementById(text2.id).getBBox();
+    if (text2.id === "text-XK" && text1.id === "text-ME") {
+        console.log("isBigger called for text-XK and text-ME");
+        console.log((b1.width * b1.height) >= (b2.width * b2.height))
+    }
+    return (b1.width * b1.height) >= (b2.width * b2.height);
+}
+
+function resizeOverlappingText(text, bbox) {
+    let texts = document.querySelectorAll("svg text");
+    //console.log(texts);
+    let switched = false;
+    if (text.id === "text-ME") {
+        console.log("Resizing text-ME");
+        console.log(texts);
+    }
+    texts.forEach(otherText => {
+        if (otherText.id !== text.id) {
+            let otherBbox = otherText.getBBox();
+            if (text.id === "text-ME") {
+                console.log(otherText.id)
+                console.log(bbox)
+                console.log(otherBbox)
+            }
+            if (bbox.x < otherBbox.x + otherBbox.width &&
+                bbox.x + bbox.width > otherBbox.x &&
+                bbox.y < otherBbox.y + otherBbox.height &&
+                bbox.y + bbox.height > otherBbox.y) {
+                // If the texts overlap, resize the smaller one
+                if (text.id === "text-ME") {
+                    console.log("it is here")
+                }
+                if (isBigger(text, otherText)) {
+                    if (text.id === "text-ME") {
+                        console.log("it is here as well")
+                    }
+                    if (text.id === "text-ME") {
+                        console.log("it is here as well 2")
+                    }
+                    while (bbox.x < otherBbox.x + otherBbox.width &&
+                        bbox.x + bbox.width > otherBbox.x &&
+                        bbox.y < otherBbox.y + otherBbox.height &&
+                        bbox.y + bbox.height > otherBbox.y){
+                        let fontSize = parseFloat(text.getAttribute("font-size"));
+                        fontSize *= 0.9; // Decrease the font size by 10%
+                        text.setAttribute("font-size", `${fontSize}px`);
+                        bbox = text.getBBox(); // Update the bounding box after resizing
+                        if (fontSize < 5) {
+                            if (!switched) {
+                                console.warn(`Text ${text.id} is too small to resize further, will resize the other text.`);
+                                let t = otherText
+                                otherText = text
+                                text = t;
+                                bbox = text.getBBox(); // Update the bounding box after resizing
+                                otherBbox = otherText.getBBox(); // Update the bounding box of the other text
+                                switched = true;
+                            }else{
+                                break
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
 function modifiedSvg(){
-    let paths = document.querySelectorAll("svg path");
+    let paths = getTiles();
     paths.forEach(path => {
         for (let i = 0; i < players.length; i++) {
             if (path.id === players[i][0][0]) {
@@ -259,15 +334,24 @@ function modifiedSvg(){
                 path.setAttribute("fill", players[i][1]);
             }
         }
-        // putting a text label on each tile in the middle
         let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
         let bbox = path.getBBox(); // this is the bounding box of the tile, it is used to find the center
         text.setAttribute("pointer-events", "none"); // this is to prevent the text from blocking the clicks on the tiles
+        text.setAttribute("id", `text-${path.id}`); // setting the id of the text to be the same as the tile
         let viewBox = document.querySelector('g[transform]'); // texts need to be added to the part of the page that pan-zoom library resizes
         viewBox.appendChild(text); // appending the text to the svg
         updateText(text, path)
         centerText(text, bbox);
         //console.log(`Tile ${path.id} has been modified with text label.`);
+        //if (text.id == "text-XK") {
+        //    console.log("here")
+        //}
+    });
+    let texts = document.querySelectorAll("svg text");
+    texts.forEach(text => {
+        let bbox = text.getBBox(); // get the bounding box of the text
+        // later change the function, this is a temporary solution
+        resizeOverlappingText(text, bbox);
     });
 }
 
@@ -293,6 +377,19 @@ function highlightTile(tileId) {
     });
 }
 
+// removing tiles without id
+function getTiles() {
+    let tiles = document.querySelectorAll("svg path")
+    let ans = [];
+    for (let i = 0; i < tiles.length; i++) {
+        if (tiles[i].id !== "") {
+            ans.push(tiles[i]);
+        }
+    }
+    return ans;
+}
+
+
 document.getElementById('mapDiv').innerHTML = svg
 
 
@@ -302,7 +399,7 @@ beforePan = function(oldPan, newPan){
   var stopHorizontal = false
     , stopVertical = false
     , gutterWidth = 400
-    , gutterHeight = 300
+    , gutterHeight = 300// later make this dynamic
     , sizes = this.getSizes()
     , leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth
     , rightLimit = sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom)
@@ -320,16 +417,16 @@ svgPanZoom('#Europe-Map', {
     center: true,
     minZoom: 0.7,
     maxZoom: 10,
-    beforePan: beforePan
+    beforePan: beforePan,
 });
 
+/* This doesnt do anything ???
 let newSvg = document.getElementById('mapDiv').querySelector('svg');
-
 newSvg.setAttribute("width", "100%");
 newSvg.setAttribute("height", "100%");
 newSvg.setAttribute("preserveAspectRatio", "xMidYMid meet");
-
-let paths = document.querySelectorAll("svg path")
+*/
+let paths = getTiles();
 //console.log(paths.length);
 paths.forEach(path => {
     path.addEventListener("click", () =>{
@@ -337,11 +434,11 @@ paths.forEach(path => {
         console.log(path.id)
         highlightTile(path.id);
     })
-    if (path.id === "") { // this is for removing tiles without id, I dont even know why there are any
-        let parrent = path.parentNode;
-        parrent.removeChild(path);
-    }else{
-        allTiles.push(path.id);
+    path.addEventListener("mouseover", () => {
+        console.log(`Mouse over tile: ${path.id}`); // later will display formables
+    });
+    if(path.id !== ""){
+        allTiles.push([path.id, 0]); // the zero is the number of troops
     }
 })
 
