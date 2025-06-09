@@ -41,10 +41,6 @@ xmlns:svg="http://www.w3.org/2000/svg">
     id="AL"
     name="Albania" />
 <path
-    d="m 277.74999,416.74961 -2.8,1.1 -0.7,-0.4 v -2.1 l 0.9,-0.7 2.6,0.6 z"
-    id="AD"
-    name="Andorra" />
-<path
     d="m 828.94999,460.34961 -3.2,-2.8 -2.3,-1.7 -1.6,-0.7 -3.5,0.4 -2.9,-0.9 -1.8,-0.9 0.5,-0.6 -1.9,-3 -0.8,-1.9 1,-1.4 0.2,-2.3 -1.7,-3.3 -1.7,-1.2 -1.3,-1.6 4.4,-0.3 5.3,-1.3 3.2,0.3 1.1,-0.2 3.5,-0.1 -0.5,-0.7 2.3,-0.5 1.3,1.5 1.6,1 -0.9,0.9 2.3,1 h 1.2 l 3.3,2.5 v 0.7 l -1.9,1.5 -0.2,1.1 3.2,3.4 2.4,1.4 3.2,1.5 0.2,0.9 -0.9,2.5 h -3 l 0.6,0.9 1.9,1.2 6.1,4.4 1.5,-0.3 2.2,0.9 0.2,1.3 -1,1.4 1.9,1.4 0.8,1.5 -1.8,0.5 1.4,1.5 0.5,2.6 -2.2,-0.1 -2.5,0.5 -3,-4.7 0.1,-1 -3.1,-2.1 0.1,-1.7 -0.8,-1.2 -1.7,0.2 -1.9,0.9 -2.9,-1.6 -1.2,0.2 -0.3,-1.1 -1.8,-1.7 z"
     id="AM"
     name="Armenia" />
@@ -124,10 +120,6 @@ xmlns:svg="http://www.w3.org/2000/svg">
     d="m 456.94999,483.54961 -1.2,2.5 -2.8,4.3 -1.5,5.1 0.3,2 1.6,1.4 -0.7,0.5 1.6,1.8 0.1,1.3 -1.8,1.9 -0.4,1.7 0.1,1.5 -2.9,-0.6 -1.4,0.3 -3.7,-1.4 -1.9,-2.8 -3,-2 h -3 l -1.4,-0.5 -2.9,-1.9 -3,-1.4 -2.6,-2.1 -1.7,-0.4 -1.5,-1 h -2.9 l -2.3,-1.6 -1.3,-2.3 1.3,-3.7 1.4,-0.8 0.9,-1.2 2.3,2.3 1.8,-0.8 1.4,-1.6 2.4,0.1 0.5,0.9 1.4,0.3 2.5,1.6 1.4,0.4 3.4,-1 3,0.4 2.8,-0.5 1.7,-0.6 1.2,-1 1.4,-0.3 3.5,0.3 2,-1.2 0.8,0.2 2,-1.2 z m -78.3,-41.5 0.7,0.9 1.8,5 -0.6,1.6 -1.3,2 0.8,2.8 -0.6,11.5 -0.6,2.9 -0.9,0.4 -2.9,-1.2 -1.5,0.3 -1.2,-0.6 -0.3,3 -1.8,2.1 -3,-0.2 -0.7,-0.6 -2.4,-3.8 -0.4,-4.3 0.6,-1.3 v -2.5 l 1.1,-0.1 v -1.7 l -1.8,-1.2 v -1.9 l 0.7,-1.4 -0.1,-2.6 -0.8,-0.9 -0.8,-2.3 -2.2,-2.4 0.1,-3.4 3.4,0.6 1.3,-0.3 3.1,-1.5 2.1,-2.5 1.4,-0.5 1.5,-1.8 0.7,0.9 2.2,0.8 1.2,1.5 0.9,0.5 -0.7,1.4 z m 8.3,-30.8 0.3,1.4 -2.5,0.5 -1.1,-1.1 2.9,-0.2 z m 37.9,-56.6 -0.2,0.9 -3.3,2.3 0.7,1.4 2.3,0.7 -1.6,2.1 0.3,1 1.3,0.2 -0.4,2 1.9,1.1 1.5,1.3 0.2,1.3 -1.5,0.1 0.7,-0.6 -2,-2.2 -2,0.9 -3.2,-0.9 -2.1,2 -1.5,0.4 -1.7,1.1 -3.2,1.2 -1.8,-0.4 -1,0.7 -0.4,3.1 0.8,0.6 1.5,2.6 1.7,1.1 -0.7,1.9 -0.9,0.7 -1.3,-0.5 -0.3,1.7 0.9,4.5 1.4,3.2 1.2,1.3 2.7,2.2 2.7,1.1 5.1,3.7 2.8,1.1 0.7,0.7 1.8,2.8 1.6,3.2 1.8,5.1 1.3,2.5 2.3,2.9 4.8,4.1 4.3,2.9 4,1.9 3,0.3 7,-0.4 2.6,0.7 0.4,1.2 -0.4,0.9 -2.9,2.1 v 1.7 l 1.5,1.2 7.1,3.2 7.2,2.6 2.2,1.4 2.7,2.1 6.4,2.9 1.1,1.4 4,3 1.8,2.4 0.5,1.8 -1.5,4.4 -1.6,-0.5 -1.9,-1.3 -3.1,-5.4 -5,-0.5 -2.9,-1.3 -0.7,-1.4 -2.3,-0.4 -1.3,0.9 -1.4,2 -1.5,3 -1.5,4.3 v 1.7 l 1.1,1.7 2.9,1 2.4,1.5 1.6,1.6 0.3,3.8 0.9,2.1 -0.9,1.3 -1.9,-0.3 -2.5,0.7 -1.7,1.4 -0.7,1.4 0.5,3.4 -0.3,1.4 -3.3,2.5 -1.6,2.5 -1,2.3 h -4.3 l -1.1,-1.5 -0.1,-2.2 0.6,-1.3 1.6,-0.7 0.9,-2.8 -0.5,-2 1.1,-1.6 2.8,-0.7 v -2.9 l -1.4,-1.3 -1.4,-5.1 -2.4,-4.3 -1.4,-3.8 -1.1,-1.8 -1.4,-1 -3.7,-0.3 -4.6,-2.6 -0.3,-1.1 0.6,-1.1 -1.1,-2.8 -2,-1.7 -2.6,0.6 -1.2,-0.1 -0.1,-1.5 -2,-1.3 -2.7,-0.2 -0.7,-0.7 -2.6,-4 -1.7,-1.7 -2.3,0.1 -3.9,-0.9 -2,0.7 -3.2,-2.6 -2.8,-0.9 -5.7,-5.3 -1.8,-2 -3.5,-2.2 -2.3,-3.2 -1.8,-1.2 -4,-1.4 -0.3,-1.3 -3.1,-3.1 -1.7,-1 -1.3,-2.1 -2.5,-0.5 0.1,-2.7 -1.2,-3.5 -1.7,-2.2 -1.2,-5.3 -0.8,-1.5 -1.8,-1.1 -4,-1.2 -5.7,-3.4 -1.1,-0.1 -3.4,-1.3 -2.1,-0.2 -2.6,1.2 -3.1,3.2 -2.5,3.4 -0.9,0.6 -3.4,1.2 -3,0.5 -0.2,-1.5 2.1,-2.6 -0.3,-2 -3.3,0.6 -5.1,-2.4 -0.9,-0.9 -0.1,-1.4 -0.7,-1.3 1.4,-2.5 0.8,-0.7 -0.5,-1.7 -3.2,-1.4 -1.5,-3.1 0.8,-0.4 1.9,0.2 1.7,-1.3 1.2,-0.3 0.8,-2.5 -1.8,-1.6 -1.7,-2.6 -0.9,-0.6 -0.1,-1.6 2.6,-1.7 1.4,0.7 2.4,-0.5 2.6,-1 3.1,0.8 2.4,-1.4 1.6,-2.2 -0.6,-1.5 3.4,-2.9 1,0.6 0.2,2.5 2.4,2 2.2,0.6 -0.4,1.2 1.3,1.2 0.9,1.4 1.2,-0.7 -0.7,-1.7 0.2,-1 2.2,-2.6 0.5,-1.1 v -2.9 l 2,-0.1 0.8,2.1 2,0.8 2.9,-1.1 0.7,0.1 1.4,1.9 1.2,-0.3 -1.5,-3.5 0.6,-1.8 1.3,-0.3 1,0.9 1.9,0.2 -0.5,-1.8 0.5,-3.1 3,0.3 0.9,0.8 2.1,0.4 1.1,-0.4 1.2,-2.2 1.4,-0.6 3.4,-0.3 3.1,0.2 4.7,-1.5 v 2.3 l 3.1,3.5 1.1,0.5 8.6,1.5 4,0.3 z"
     id="IT"
     name="Italy" />
-<path
-    d="m 373.74999,346.44961 -1.2,-0.1 -0.1,-1.7 0.5,-1.5 1.1,2.5 z"
-    id="LI"
-    name="Liechtenstein" />
 <path
     d="m 562.24999,216.44961 v 1.8 l -0.7,3.1 3.9,1 -1.3,1 -0.4,1.1 -3.6,-0.1 -1,2 -0.8,0.6 -2.6,0.6 -1.1,3 0.4,2.3 -1,1.5 -0.5,2 1.9,0.5 0.9,1.1 v 1 l -2,0.2 -1.7,-2.3 -1,0.7 -2.1,0.5 -1.4,1.2 -2,-0.2 -0.8,2.6 -1.8,-0.1 -3.3,1.3 -1.6,-0.9 -3.7,0.3 -1.6,0.3 -2.9,-0.4 -0.8,-3 -1.1,-0.9 -4.5,-2.2 -2.3,-0.7 -0.6,0.6 -1.3,-2 v -2.1 l 1,-3.1 -1.3,-1.3 -1.4,-0.6 -0.9,-1.3 -5.7,-0.1 -2.4,-0.6 -3.9,-1.4 -2,-1.2 -1.8,0.2 -0.6,-1.2 0.2,-1.6 -1.1,-2.4 -1.6,-2.9 -0.7,-3.8 2.8,-1.7 3.6,-1.9 4.7,-1.4 5.9,0.5 4.3,-0.1 1,0.9 1.6,-0.7 4.9,0.5 2.3,0.1 3.7,0.9 4.6,-0.4 1.7,-1.3 2.3,-0.2 2.4,2.9 6.1,1 0.9,0.4 5.4,3.1 2.6,2.1 1.5,0.7 z"
     id="LT"
@@ -215,9 +207,78 @@ xmlns:svg="http://www.w3.org/2000/svg">
 </svg>
 `
 
+// removed for design reasons, maybe add them back later
+/* <path
+    d="m 373.74999,346.44961 -1.2,-0.1 -0.1,-1.7 0.5,-1.5 1.1,2.5 z"
+    id="LI"
+    name="Liechtenstein" />
+
+<path
+    d="m 277.74999,416.74961 -2.8,1.1 -0.7,-0.4 v -2.1 l 0.9,-0.7 2.6,0.6 z"
+    id="AD"
+    name="Andorra" />
+*/
+
 let allTiles = [];
-let colors = ["#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF", "#FFA500", "#800080"];
-//console.log("Total number of tiles: " + allTiles.length);
+let colors = ["#FF0505", "#00FF0F", "#555555", "#FFFF00", "#FF0FFF", "#FFA500", "#800080"];
+
+// formables list
+let tripleMonarchy =["FR","GB","IE", "IT"]
+let iberianUnion = ["ES","PT"]
+let scandinavia = ["NO","SE","DK","FI","IS"]
+let centralEurope = ["DE","AT","CH","PL", "CZ", "SK", "HU"]
+let balticUnion = ["LT","LV","EE"]
+let benelux = ["NL","BE","LU"]
+let yugoslavia = ["SI","HR","BA","ME","RS","MK", "XK"]
+let byzantium = ["TR","GR","CY","GE","BG","AL", "AM"]
+let easternEurope = ["UA","BY","MD","RO"];
+
+let allForm = [tripleMonarchy, iberianUnion, scandinavia, centralEurope, balticUnion, benelux, yugoslavia, byzantium, easternEurope];
+
+let neighbors = {
+    "ES": ["PT", "FR"],
+    "PT": ["ES"],
+    "IS": ["NO", "GB"],
+    "IE": ["GB"],
+    "GB": ["IE", "IS", "FR"],
+    "NO": ["SE", "DK", "FI", "IS"],
+    "SE": ["NO", "DK", "FI"],
+    "DK": ["NO", "SE", "DE"],
+    "FI": ["NO", "SE", "EE"],
+    "EE": ["FI", "LV"],
+    "LV": ["EE", "LT", "BY"],
+    "LT": ["LV", "BY", "PL"],
+    "FR": ["GB", "BE", "LU", "DE", "CH", "IT", "ES"],
+    "BE": ["FR", "NL", "LU", "DE"],
+    "NL": ["BE", "DE"],
+    "LU": ["BE", "FR", "DE"],
+    "IT": ["FR", "CH", "AT", "SI"],
+    "CH": ["FR", "DE", "AT", "IT"],
+    "DE": ["FR", "BE", "NL", "LU", "CH", "AT", "CZ", "PL", "DK"],
+    "AT": ["DE", "CH", "IT", "SI", "CZ", "SK", "HU"],
+    "CZ": ["DE", "AT", "SK", "PL"],
+    "SK": ["CZ", "AT", "HU", "PL", "UA"],
+    "PL": ["DE", "CZ", "SK","BL", "UA", "LT"],
+    "BY": ["PL", "UA", "LT", "LV"],
+    "UA": ["PL", "SK", "HU", "BY", "MD", "RO"],
+    "MD": ["UA", "RO"],
+    "RO": ["UA", "MD", "HU", "BG", "RS"],
+    "BG": ["RO", "TR", "GR", "MK", "RS"],
+    "GR": ["BG", "TR", "CY", "AL", "MK"],
+    "HU": ["UA","SK", "AT", "SI", "HR", "RS", "RO"],
+    "SI": ["IT", "AT", "HU", "HR"],
+    "HR": ["SI", "HU", "RS", "BA"],
+    "BA": ["HR", "ME", "RS"],
+    "ME": ["BA", "RS", "XK", "AL"],
+    "RS": ["HU", "HR", "BA","XK", "ME", "MK", "BG", "RO"],
+    "XK": ["ME", "RS", "AL", "BG", "GR"],
+    "AL": ["ME", "XK", "GR", "MK"],
+    "MK": ["AL", "GR", "BG", "RS", "XK"],
+    "CY": ["TR", "GR"],
+    "TR": ["CY", "GR", "BG", "GE", "AM"],
+    "GE": ["TR", "AM"],
+    "AM": ["TR", "GE"],
+}
 
 function randomTile(){
     //console.log(allTiles)
@@ -233,8 +294,68 @@ function randomTile(){
     return([[tile], color]);
 }
 
+function currentPlayerTile(path){
+    if (globalPlayer === thisPlayer) {
+        for (let i = 0; i < players.length; i++) {
+            if (players[i][0].includes(path)) {
+                return true; // Tile belongs to the current player
+            }
+        }
+    } else {
+        return false;
+    }
+}
+
+function removeCopies(){
+    let clones = document.getElementsByClassName("clone");
+    //console.log(clones);
+    let viewBox = document.querySelector('g[transform]');
+    while (clones.length > 0) {
+        let clone = clones[0];
+        //console.log(clone);
+        viewBox.removeChild(clone);
+    }
+}
+
+function showAttackOptions(path){
+    let n = neighbors[path];
+    //console.log(n);
+    // putting a green see through copy of the neighboring tile on top of the actual tile
+    n.forEach(neighbor => {
+        let neighborTile = document.getElementById(neighbor);
+        if (neighborTile) {
+            let clone = neighborTile.cloneNode(true);
+            //console.log(clone);
+            clone.setAttribute("fill", "rgba(0, 255, 0, 0.5)");
+            clone.setAttribute("stroke", "green");
+            clone.setAttribute("stroke-width", "2");
+            clone.classList.add("clone");
+            clone.setAttribute("pointer-events", "none");
+            let viewBox = document.querySelector('g[transform]');
+            viewBox.appendChild(clone);
+            let neighborsText = document.getElementById(`UI-text-${neighbor}`);
+            let neighborCircle = document.getElementById(`UI-text-circle-${neighbor}`);
+            console.log(neighborsText);
+            // this ensures that the text and circle are on top of the clone
+            viewBox.removeChild(neighborsText);
+            viewBox.removeChild(neighborCircle);
+            //return
+            viewBox.appendChild(neighborCircle);
+            viewBox.appendChild(neighborsText);
+        }
+    });
+}
+
+function updateTurnCounter(){
+    let turnCounter = document.getElementById("turnCounter");
+    turnCounter.textContent = `Turn: ${turn}`;
+}
+
 let players = [];
-let playerCount = 4;
+let playerCount = 4; // max is 7
+let thisPlayer = 1;
+let globalPlayer = 1;
+let turn = 1;
 
 function updateText(text, path) {
     let troopCount = 0;
@@ -244,10 +365,10 @@ function updateText(text, path) {
             break;
         }
     }
-    text.textContent = `${path.id} (${troopCount})`;
+    text.textContent = `${path.id}(${troopCount})`;
     text.setAttribute("text-anchor", "middle");
     text.setAttribute("dominant-baseline", "central");
-    text.setAttribute("font-size", `${window.innerWidth / 80}px`);
+    text.setAttribute("font-size", `${window.innerWidth / 90}px`);
     text.setAttribute("fill", "black");
 }
 
@@ -259,10 +380,10 @@ function centerText(text, bbox) {
 function isBigger(text1, text2) {
     let b1 = document.getElementById(text1.id).getBBox();
     let b2 = document.getElementById(text2.id).getBBox();
-    if (text2.id === "text-XK" && text1.id === "text-ME") {
+    /*if (text2.id === "text-XK" && text1.id === "text-ME") {
         console.log("isBigger called for text-XK and text-ME");
         console.log((b1.width * b1.height) >= (b2.width * b2.height))
-    }
+    }*/
     return (b1.width * b1.height) >= (b2.width * b2.height);
 }
 
@@ -270,33 +391,33 @@ function resizeOverlappingText(text, bbox) {
     let texts = document.querySelectorAll("svg text");
     //console.log(texts);
     let switched = false;
-    if (text.id === "text-ME") {
+    /*if (text.id === "text-ME") {
         console.log("Resizing text-ME");
         console.log(texts);
-    }
+    }*/
     texts.forEach(otherText => {
         if (otherText.id !== text.id) {
             let otherBbox = otherText.getBBox();
-            if (text.id === "text-ME") {
+            /*if (text.id === "text-ME") {
                 console.log(otherText.id)
                 console.log(bbox)
                 console.log(otherBbox)
-            }
+            }*/
             if (bbox.x < otherBbox.x + otherBbox.width &&
                 bbox.x + bbox.width > otherBbox.x &&
                 bbox.y < otherBbox.y + otherBbox.height &&
                 bbox.y + bbox.height > otherBbox.y) {
                 // If the texts overlap, resize the smaller one
-                if (text.id === "text-ME") {
+                /*if (text.id === "text-ME") {
                     console.log("it is here")
-                }
+                }*/
                 if (isBigger(text, otherText)) {
-                    if (text.id === "text-ME") {
+                    /*if (text.id === "text-ME") {
                         console.log("it is here as well")
                     }
                     if (text.id === "text-ME") {
                         console.log("it is here as well 2")
-                    }
+                    }*/
                     while (bbox.x < otherBbox.x + otherBbox.width &&
                         bbox.x + bbox.width > otherBbox.x &&
                         bbox.y < otherBbox.y + otherBbox.height &&
@@ -325,33 +446,80 @@ function resizeOverlappingText(text, bbox) {
     });
 }
 
-function modifiedSvg(){
+function updateTiles() {
     let paths = getTiles();
     paths.forEach(path => {
         for (let i = 0; i < players.length; i++) {
-            if (path.id === players[i][0][0]) {
-                //console.log(`Player ${i + 1} is on tile: ${path.id} and it will be colored`);
-                path.setAttribute("fill", players[i][1]);
+            for (let j = 0; j < players[i][0].length; j++) {
+                if (players[i][0][j] === path.id) {
+                    //console.log(`Tile ${path.id} is owned by player ${i + 1}`);
+                    path.setAttribute("fill", players[i][1]);
+                    return; // Exit the loop once the tile is found
+                }
             }
         }
-        let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    })
+}
+
+function countryClick(tileId) {
+    //console.log(globalPlayer, thisPlayer);
+    highlightTile(tileId);
+    //console.log(currentPlayerTile(tileId));
+    removeCopies();
+    if(currentPlayerTile(tileId)){
+        showAttackOptions(tileId)
+    }
+    //console.log(`Clicked on tile: ${tileId}`);
+}
+
+function modifiedSvg(){
+    updateTiles();
+    let paths = getTiles();
+    paths.forEach(path => {
         let bbox = path.getBBox(); // this is the bounding box of the tile, it is used to find the center
+        // making a circle under the text
+        let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circle.setAttribute("cx", bbox.x + bbox.width / 2);
+        circle.setAttribute("cy", bbox.y + bbox.height / 2);
+        circle.setAttribute("fill", "white");
+        circle.setAttribute("stroke", "black");
+        circle.setAttribute("stroke-width", "1");
+        circle.setAttribute("id", `UI-text-circle-${path.id}`);
+        let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
         text.setAttribute("pointer-events", "none"); // this is to prevent the text from blocking the clicks on the tiles
-        text.setAttribute("id", `text-${path.id}`); // setting the id of the text to be the same as the tile
+        text.setAttribute("id", `UI-text-${path.id}`);
         let viewBox = document.querySelector('g[transform]'); // texts need to be added to the part of the page that pan-zoom library resizes
-        viewBox.appendChild(text); // appending the text to the svg
+        viewBox.appendChild(text);
+        requestAnimationFrame(() => {
+        const bbox = text.getBBox();
+        //console.log(bbox);
+        circle.setAttribute("r", `${Math.max(text.getBBox().width, text.getBBox().height)/2+1}`); // radius is half of the bigger dimension of the text bounding box plus 5px
+        });
+        //console.log(document.getElementById("UI-text-" + path.id).getBBox());
+        viewBox.removeChild(text) // the text needs to be removed and readded so that its on top of the circle
+        viewBox.appendChild(circle);
+        viewBox.appendChild(text);
+        circle.addEventListener("click", (event) => {
+            //console.log(`Clicked on circle of tile: ${path.id}`);
+            event.stopPropagation();
+            countryClick(path.id);
+        });
+        circle.addEventListener("mouseover", () => {
+            displayFormables(path);
+        });
+        circle.addEventListener("mouseout", () => {
+            resetFormableHighlight();
+        });
         updateText(text, path)
         centerText(text, bbox);
-        //console.log(`Tile ${path.id} has been modified with text label.`);
-        //if (text.id == "text-XK") {
-        //    console.log("here")
-        //}
     });
     let texts = document.querySelectorAll("svg text");
     texts.forEach(text => {
-        let bbox = text.getBBox(); // get the bounding box of the text
-        // later change the function, this is a temporary solution
-        resizeOverlappingText(text, bbox);
+        if (text.id.startsWith("UI-text-")) {
+            let bbox = text.getBBox(); // get the bounding box of the text
+            // later change this functions place, this is a temporary solution
+            resizeOverlappingText(text, bbox);
+        }
     });
 }
 
@@ -377,21 +545,130 @@ function highlightTile(tileId) {
     });
 }
 
-// removing tiles without id
+function displayFormables(path){
+    for (let index = 0; index < allForm.length; index++) {
+        for (let i = 0; i< allForm[index].length; i++) {
+            if(allForm[index][i] == path.id){
+                //console.log(allForm[index][i], path.id)
+                let countries = document.querySelectorAll("svg path")
+                countries.forEach(country =>{
+                    for (let j = 0; j < allForm[index].length; j++) {
+                        if (country.id == allForm[index][j]){
+                            //console.log("colored a country of a formable")
+                            country.setAttribute("stroke-width", "5")
+                        }
+                    }
+                })
+                break;
+            }
+        }
+    }
+}
+
 function getTiles() {
     let tiles = document.querySelectorAll("svg path")
     let ans = [];
     for (let i = 0; i < tiles.length; i++) {
-        if (tiles[i].id !== "") {
+        if (tiles[i].id !== "" && !tiles[i].id.includes("UI")) {
             ans.push(tiles[i]);
         }
     }
     return ans;
 }
 
+function addOtherUI(){
+    let s = document.querySelector("svg")
+    let pol = document.createElementNS("http://www.w3.org/2000/svg","polygon")
+    pol.setAttribute("fill", `black`)
+    pol.setAttribute("id", "UI-arrow")
+    s.appendChild(pol)
+    let pol2 = document.createElementNS("http://www.w3.org/2000/svg","polygon")
+    pol2.setAttribute("fill", `black`)
+    pol2.setAttribute("id", "UI-arrow2")
+    s.appendChild(pol2)
+    let rectangle = document.createElementNS("http://www.w3.org/2000/svg","rect")
+    rectangle.setAttribute("x", `0`)
+    rectangle.setAttribute("y", `${window.innerHeight - window.innerWidth/26 * (playerCount/2)}`)
+    rectangle.setAttribute("width", `${window.innerWidth/5}`)
+    rectangle.setAttribute("height", `${window.innerWidth/13}`)
+    rectangle.setAttribute("fill", "white")
+    rectangle.setAttribute("stroke", "black")
+    rectangle.setAttribute("stroke-width", "2")
+    rectangle.setAttribute("id", "UI-rectangle")
+    rectangle.addEventListener("click", () => {
+        turn++;
+        updateTurnCounter();
+        globalPlayer++;
+        if (globalPlayer > playerCount) {
+            globalPlayer = 1;
+        }
+        updateArrow(window.innerHeight/2, window.innerWidth/13);
+    })
+    s.appendChild(rectangle)
+    let textN = document.createElementNS("http://www.w3.org/2000/svg","text")
+    textN.setAttribute("id", "UI-rectangle-text")
+    textN.setAttribute("x", `${window.innerWidth/10}`)
+    textN.setAttribute("y", `${window.innerHeight - window.innerWidth/26/1.5}`)
+    textN.setAttribute("font-size", `${window.innerWidth/30}px`)
+    textN.setAttribute("fill", "black")
+    textN.textContent = `Next Turn`;
+    textN.setAttribute("text-anchor", "middle");
+    textN.setAttribute("pointer-events", "none");
+    s.appendChild(textN);
+    let textC = document.createElementNS("http://www.w3.org/2000/svg","text")
+    textC.setAttribute("id", "turnCounter")
+    textC.setAttribute("x", `${window.innerWidth-window.innerWidth/10}`)
+    textC.setAttribute("y", `${window.innerHeight/26 *2}`)
+    textC.setAttribute("font-size", `${window.innerWidth/30}px`)
+    textC.setAttribute("fill", "black")
+    textC.textContent = `Turn: ${turn}`;
+    textC.setAttribute("text-anchor", "middle");
+    s.appendChild(textC);
+}
+
+function addUI(i){
+    let s = document.querySelector("svg")
+    let circle = document.createElementNS("http://www.w3.org/2000/svg","circle")
+    // cx="50" cy="50" r="40" stroke="green" stroke-width="2"
+    circle.setAttribute("fill", `${players[i][1]}`)
+    circle.setAttribute("r", `${window.innerWidth/30}`)
+    circle.setAttribute("stroke", `5`)
+    circle.setAttribute("stroke-width", `5`)
+    circle.setAttribute("id", `UI-playerCircle-${i}`)
+    s.appendChild(circle)
+    //document.getElementById('mapDiv').innerHTML += s
+    //console.log(s.children)
+}
+
+function resetFormableHighlight() {
+    let countries = document.querySelectorAll("svg path")
+        countries.forEach(country =>{
+            country.setAttribute("stroke-width", "1")
+        })
+}
+
+function updateArrow(Ccenter, baseUnit){
+    let arrow = document.getElementById("UI-arrow")
+    arrow.setAttribute("points", `${baseUnit/2},${Ccenter-baseUnit*(playerCount/2)+baseUnit *globalPlayer-baseUnit*0.8 - baseUnit/2} ${baseUnit/2+baseUnit/4},${Ccenter-baseUnit*(playerCount/2)+baseUnit *globalPlayer -baseUnit*0.8} ${baseUnit/2-baseUnit/4},${Ccenter-baseUnit*(playerCount/2)+baseUnit *globalPlayer-baseUnit*0.8}`)
+}
+
+function resizeUI(){
+    // resizing the circles
+    let circles = document.querySelectorAll("circle")
+    //console.log("resizing ui")
+    let Ccenter = window.innerHeight/2
+    //console.log(Ccenter, playerCount)
+    let baseUnit = window.innerWidth/13
+    for(let i = 0; i < circles.length; i++){
+        circles[i].setAttribute("cx", `${baseUnit/2}`)
+        circles[i].setAttribute("cy", `${Ccenter-baseUnit*(playerCount/2)+baseUnit *i}`)
+    }
+    let arrow2 = document.getElementById("UI-arrow2")
+    arrow2.setAttribute("points", `${baseUnit/2+baseUnit},${Ccenter-baseUnit*(playerCount/2)+baseUnit *thisPlayer-baseUnit*0.8 - baseUnit/2} ${baseUnit/2+baseUnit},${Ccenter-baseUnit*(playerCount/2)+baseUnit *thisPlayer -baseUnit*0.8} ${baseUnit/2-baseUnit/2+baseUnit},${Ccenter-baseUnit*(playerCount/2)+baseUnit *thisPlayer-baseUnit*0.8-baseUnit/4}`)
+    updateArrow(Ccenter, baseUnit);
+}
 
 document.getElementById('mapDiv').innerHTML = svg
-
 
 // this entire block of code is from the svg-pan-zoom documentation, it is used to limit the panning of the map
 var beforePan
@@ -412,6 +689,7 @@ beforePan = function(oldPan, newPan){
 }
 svgPanZoom('#Europe-Map', {
     zoomEnabled: true,
+    dblClickZoomEnabled: false,
     controlIconsEnabled: true,
     fit: true,
     center: true,
@@ -420,23 +698,20 @@ svgPanZoom('#Europe-Map', {
     beforePan: beforePan,
 });
 
-/* This doesnt do anything ???
-let newSvg = document.getElementById('mapDiv').querySelector('svg');
-newSvg.setAttribute("width", "100%");
-newSvg.setAttribute("height", "100%");
-newSvg.setAttribute("preserveAspectRatio", "xMidYMid meet");
-*/
 let paths = getTiles();
 //console.log(paths.length);
 paths.forEach(path => {
-    path.addEventListener("click", () =>{
-        event.stopPropagation(); // Prevent the click event from propagating to the body, tohle je z netu
-        console.log(path.id)
-        highlightTile(path.id);
-    })
-    path.addEventListener("mouseover", () => {
-        console.log(`Mouse over tile: ${path.id}`); // later will display formables
+    path.setAttribute("stroke-width", "1");
+    path.addEventListener("click", (event) => {
+        event.stopPropagation(); // Prevent the click event from propagating to the body
+        countryClick(path.id);
     });
+    path.addEventListener("mouseover", (event) => {
+        displayFormables(path);
+    });
+    path.addEventListener("mouseout", () => {
+        resetFormableHighlight();
+    })
     if(path.id !== ""){
         allTiles.push([path.id, 0]); // the zero is the number of troops
     }
@@ -445,12 +720,20 @@ paths.forEach(path => {
 document.body.addEventListener('click', () => {
   paths.forEach(path => {
     path.classList.remove('highlighted', 'dimmed');
+    removeCopies();
   });
 });
 
 for (let i = 0; i < playerCount; i++) {
     players.push(randomTile());
+    addUI(i)
     //console.log(players)
 }
+addOtherUI()
+resizeUI()
+
+//adding a second tile to one of the players
+//players[0][0].push("FR");
+
 console.log("Players: ", players);
 modifiedSvg();
