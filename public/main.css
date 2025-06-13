@@ -1,0 +1,19 @@
+.highlighted {
+  opacity: 1;
+  filter: brightness(1.3);
+}
+
+.dimmed {
+  filter: brightness(0.7);
+}
+
+.attackable{
+  fill: rgba(0, 255, 0);
+  opacity: 1;
+}
+
+svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
