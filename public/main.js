@@ -366,7 +366,7 @@ if (document.getElementById("formable-TR-GR-CY-GE-BG-AL-AM")) {
 }
 
 function createFormables(){
-    paper.setup(document.querySelector("svg"));
+    /*paper.setup(document.querySelector("svg"));
     allForm.forEach(formable => {
         let nations = [];
         allTiles.forEach(tile => {
@@ -375,7 +375,30 @@ function createFormables(){
             }
         });
         console.log(nations)
-    });
+        //combining the paths of the nations into one path
+        let combinedPath = null;
+        nations.forEach(nation => {
+        let paperPath = new paper.Path(nation.path.getAttribute('d'));
+        if (!combinedPath) {
+            console.log(paperPath)
+            combinedPath = paperPath;
+        } else {
+            combinedPath = combinedPath.unite(paperPath);
+        }
+        });
+        combinedPath.closed = false;
+        combinedPath.strokeColor = 'black';
+        combinedPath.strokeWidth = 3;
+        combinedPath.name = `formable-${formable.join('-')}`;
+        combinedPath.onClick = function(event) {
+            console.log(`Formable clicked: ${formable.join(', ')}`);
+        };
+        let element = combinedPath.exportSVG({ asString: true });
+        let svgElement = new DOMParser().parseFromString(element, "image/svg+xml").documentElement;
+        svgElement.setAttribute("id", `formable-${formable.join('-')}`);
+        document.querySelector("svg").appendChild(svgElement);
+        console.log(`Formable created: ${combinedPath.name}`);
+    });*/
 }
 
 function assignFormablesToTiles() {
