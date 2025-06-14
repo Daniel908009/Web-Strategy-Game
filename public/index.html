@@ -16,29 +16,64 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
+        <link
+            rel="icon"
+            href="/strategy.png"
+            type="image/png"
+            sizes="16x16"
+        />
     </head>
 
     <body>
         <h1>Main Menu</h1>
         <input id="playerName" placeholder="Your name" />
         <input id="lobbyId" placeholder="Lobby ID" />
+        <button onclick="randomID()">Create random ID</button>
         <button onclick="joinLobby()">Join Lobby</button>
+        <button onclick="createLobby()">Create Lobby</button>
         <script>
-            function joinLobby() {
-                const name = document.getElementById('playerName').value || 'Anonymous';
-                const lobbyId = document.getElementById('lobbyId').value.trim();
+        function createLobby() {
+            const lobbyId = document.getElementById('lobbyId').value.trim();
+            const playerName = document.getElementById('playerName').value.trim();
 
-                if (!lobbyId) {
-                    alert("Please enter a Lobby ID");
-                    return;
+            if (!lobbyId) return alert("Please enter a lobby ID");
+
+            fetch(`/api/create-lobby`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ lobbyId })
+            }).then(res => {
+                if (res.ok) {
+                    window.location.href = `/map/${lobbyId}?name=${encodeURIComponent(playerName)}`;
+                } else {
+                    res.text().then(text => alert(text));
                 }
+            });
+        }
 
-                // Redirect to the map page for this lobby
-                window.location.href = `/map/${lobbyId}?name=${encodeURIComponent(name)}`;
-            }
+        function joinLobby() {
+            const lobbyId = document.getElementById('lobbyId').value.trim();
+            const playerName = document.getElementById('playerName').value.trim();
+
+            if (!lobbyId) return alert("Please enter a lobby ID");
+
+            fetch(`/api/check-lobby/${lobbyId}`)
+                .then(res => {
+                    if (res.ok) {
+                        window.location.href = `/map/${lobbyId}?name=${encodeURIComponent(playerName)}`;
+                    } else {
+                        alert("Lobby not found.");
+                    }
+                });
+        }
+
+        function randomID() {
+            const randomId = Math.random().toString(36).substring(2, 10);
+            document.getElementById('lobbyId').value = randomId;
+        }
         </script>
         <footer>
-            <!-- place footer here -->
+            <p class="text-center fw-bold pt-3">© Daniel Kříž - 2025 </p>
         </footer>
         <!-- Bootstrap JavaScript Libraries -->
         <script

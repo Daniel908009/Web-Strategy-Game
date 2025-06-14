@@ -207,6 +207,116 @@ xmlns:svg="http://www.w3.org/2000/svg">
 </svg>
 `
 
+const socket = new WebSocket(`ws://${location.host}`);
+
+let isMain = false;
+
+socket.addEventListener('open', () => {
+    const lobbyId = window.location.pathname.split("/").pop();
+    const playerName = new URLSearchParams(window.location.search).get("name") || "Anonymous";
+    console.log("Connected to lobby:", lobbyId, "as player:", playerName);
+    socket.send(JSON.stringify({
+        type: "join",
+        lobbyId,
+        playerName
+    }));
+});
+
+socket.addEventListener('message', (event) => {
+    const data = JSON.parse(event.data);
+    //console.log("Received data:", data);
+    if (data.type === 'role') {
+        isMain = data.role === 'main';
+        thisPlayer = data.number
+        console.log("You are the", isMain ? "MAIN" : "CLIENT");
+        console.log("You are player number:", thisPlayer);
+        console.log(data.lobbyInfo);
+        if (!isMain) {
+            socket.send(JSON.stringify({
+                type: "request-players",
+                lobbyId: window.location.pathname.split("/").pop(),
+            }));
+            console.log("Requesting map")
+            socket.send(JSON.stringify({
+                type: "map-request",
+                lobbyId: window.location.pathname.split("/").pop(),
+            }));
+        }
+    } else if (data.type === "player-list-request") {
+        let playerList = [];
+        players.forEach((player, index) => {
+            playerList.push({
+                number: player.num,
+                color: player.color,
+        })});
+        socket.send(JSON.stringify({
+            type: "player-list-response",
+            lobbyId: window.location.pathname.split("/").pop(),
+            playerList: playerList
+        }));
+    } else if (data.type === "player-list") {
+        console.log("Player list received:", data.players);
+        players = [];
+        data.players.forEach((playerData, index) => {
+            let newPlayer = new player(playerData.number, playerData.color);
+            players.push(newPlayer);
+            // updating the player UI circles
+            let playerCircle = document.getElementById(`UI-playerCircle-${index}`);
+            if (playerCircle) {
+                playerCircle.setAttribute("fill", playerData.color);
+                playerCircle.textContent = `Player ${playerData.number}`;
+            } else {
+                console.warn(`Player circle for player ${index + 1} not found.`);
+            }
+        });
+        console.log("Updated players:", players);
+    } else if (data.type === "request-map") {
+        let mapData = [];
+        allTiles.forEach(tilePath => {
+            let tileName = tilePath.path.id;
+            let tile = allTiles.find(t => t.name === tileName);
+            if (tile) {
+                mapData.push({
+                    name: tile.name,
+                    troopNum: tile.troopNum,
+                    color: tile.textCircle.getAttribute("fill")
+                });
+            }
+        });
+        socket.send(JSON.stringify({
+            type: "map-data",
+            lobbyId: window.location.pathname.split("/").pop(),
+            mapData: mapData
+        }));
+        //console.log("Map data sent somewhere:", mapData);
+        //console.log(players);
+    } else if (data.type === "next-turn"){
+        console.log("Next turn data received:", data);
+        turn = data.turn;
+        globalPlayer = data.globalPlayer;
+        console.log("Next turn:", turn, "for player:", globalPlayer, "this player:", thisPlayer, "showForm:", showForm);
+        updateArrow(window.innerHeight/2, window.innerWidth/13);
+        updateTurnCounter();
+    } else if (data.type === "map-data") {
+        console.log("Map data received:", data.mapData);
+        //console.log("the tile named UK")
+        //console.log(data.mapData[0].name);
+        data.mapData.forEach(tileData => {
+            //console.log("Processing tile:", tileData.name);
+            let t = allTiles.find(t => t.name === tileData.name);
+            //console.log("Found tile:", t);
+            if (t) {
+                t.troopNum = tileData.troopNum;
+                t.textCircle.setAttribute("fill", tileData.color);
+                t.path.setAttribute("fill", tileData.color);
+                t.text.textContent = `${tileData.name}(${tileData.troopNum})`;
+            } else {
+                //console.warn(`Tile ${tileData.name} not found in allTiles.`);
+            }
+        });
+    }
+    });
+
 class tile{
     constructor(name, path) {
         this.name = name;
@@ -235,6 +345,7 @@ let playerCount = 5; // max is 6
 let thisPlayer = 1;
 let globalPlayer = 1;
 let turn = 1;
+let showForm = false
 
 // formables list
 let tripleMonarchy =["FR","GB","IE", "IT"]
@@ -247,7 +358,7 @@ let yugoslavia = ["SI","HR","BA","ME","RS","MK", "XK"]
 let byzantium = ["TR","GR","CY","GE","BG","AL", "AM"]
 let easternEurope = ["UA","BY","MD","RO"];
 
-let allForm = [tripleMonarchy, iberianUnion, scandinavia, centralEurope, balticUnion, benelux, yugoslavia, byzantium, easternEurope];
+let allForm = [[tripleMonarchy,4], [iberianUnion,2], [scandinavia,4], [centralEurope,7], [balticUnion,3], [benelux,4], [yugoslavia,6], [byzantium,6], [easternEurope,3]];
 
 let neighbors = {
     "ES": ["PT", "FR"],
@@ -307,10 +418,10 @@ paths.forEach(path => {
         countryClick(path.id);
     });
     path.addEventListener("mouseover", () => {
-        displayFormablesText(path);
+        displayFormable(path);
     });
     path.addEventListener("mouseout", () => {
-        resetFormablesText();
+        resetFormables();
     });
     //console.log(path)
     let p = document.getElementById(`${path.id}`)
@@ -318,8 +429,6 @@ paths.forEach(path => {
     allTiles.push(c); // the zero is the number of troops
 })
 assignFormablesToTiles()
-
-createFormables()
 
 createCircleTexts()
 
@@ -357,49 +466,6 @@ svgPanZoom('#Europe-Map', {
     beforePan: beforePan,
 });
 createUI()
-
-// seeing if the formables exist in the svg
-if (document.getElementById("formable-TR-GR-CY-GE-BG-AL-AM")) {
-    console.log("Formables exist in the SVG");
-} else {
-    console.log("Formables do not exist in the SVG");
-}
-
-function createFormables(){
-    /*paper.setup(document.querySelector("svg"));
-    allForm.forEach(formable => {
-        let nations = [];
-        allTiles.forEach(tile => {
-            if (formable.includes(tile.name)) {
-                nations.push(tile);
-            }
-        });
-        console.log(nations)
-        //combining the paths of the nations into one path
-        let combinedPath = null;
-        nations.forEach(nation => {
-        let paperPath = new paper.Path(nation.path.getAttribute('d'));
-        if (!combinedPath) {
-            console.log(paperPath)
-            combinedPath = paperPath;
-        } else {
-            combinedPath = combinedPath.unite(paperPath);
-        }
-        });
-        combinedPath.closed = false;
-        combinedPath.strokeColor = 'black';
-        combinedPath.strokeWidth = 3;
-        combinedPath.name = `formable-${formable.join('-')}`;
-        combinedPath.onClick = function(event) {
-            console.log(`Formable clicked: ${formable.join(', ')}`);
-        };
-        let element = combinedPath.exportSVG({ asString: true });
-        let svgElement = new DOMParser().parseFromString(element, "image/svg+xml").documentElement;
-        svgElement.setAttribute("id", `formable-${formable.join('-')}`);
-        document.querySelector("svg").appendChild(svgElement);
-        console.log(`Formable created: ${combinedPath.name}`);
-    });*/
-}
 
 function assignFormablesToTiles() {
     allTiles.forEach(tile => {
@@ -502,13 +568,21 @@ function addOtherUI(){
     rectangle.setAttribute("stroke-width", "2")
     rectangle.setAttribute("id", "UI-rectangle")
     rectangle.addEventListener("click", () => {
-        turn++;
-        updateTurnCounter();
-        globalPlayer++;
-        if (globalPlayer > playerCount) {
-            globalPlayer = 1;
+        if (globalPlayer == thisPlayer) {
+            turn++;
+            updateTurnCounter();
+            globalPlayer++;
+            if (globalPlayer > playerCount) {
+                globalPlayer = 1;
+            }
+            updateArrow(window.innerHeight/2, window.innerWidth/13);
+            socket.send(JSON.stringify({
+                type: "next-turn",
+                lobbyId: window.location.pathname.split("/").pop(),
+                turn: turn,
+                globalPlayer: globalPlayer
+            }));
         }
-        updateArrow(window.innerHeight/2, window.innerWidth/13);
     })
     s.appendChild(rectangle)
     let textN = document.createElementNS("http://www.w3.org/2000/svg","text")
@@ -529,6 +603,8 @@ function addOtherUI(){
     textC.setAttribute("fill", "black")
     textC.textContent = `Turn: ${turn}`;
     textC.setAttribute("text-anchor", "middle");
+    textC.setAttribute("pointer-events", "none");
+    textC.setAttribute("font-weight", "bold");
     s.appendChild(textC);
     //<p class="text-center fw-bold pt-3">© Daniel Kříž - 2025</p>
     let textCopyright = document.createElementNS("http://www.w3.org/2000/svg","text")
@@ -551,7 +627,11 @@ function addOtherUI(){
     formButton.setAttribute("id", "UI-formButton")
     formButton.addEventListener("click", () => {
         // allow formables to be displayed
-        console.log("Formables button clicked");
+        //console.log(formButton.getAttribute("fill"))
+        //console.log(formButton.getAttribute("fill") == "white"? "black":"white");
+        formButton.setAttribute("fill", `${formButton.getAttribute("fill") == "white"? "black":"white"}`)
+        formButtonText.setAttribute("fill", `${formButtonText.getAttribute("fill") == "white"? "black":"white"}`)
+        showForm = showForm == false ? true:false
     });
     s.appendChild(formButton);
     let formButtonText = document.createElementNS("http://www.w3.org/2000/svg","text")
@@ -562,6 +642,7 @@ function addOtherUI(){
     formButtonText.textContent = `F`;
     formButtonText.setAttribute("text-anchor", "middle");
     formButtonText.setAttribute("pointer-events", "none");
+    formButtonText.setAttribute("font-weight", "bold");
     s.appendChild(formButtonText);
 }
 
@@ -674,10 +755,10 @@ function createCircleTexts(){
             countryClick(path.id);
         });
         circle.addEventListener("mouseover", () => {
-            displayFormablesText(path);
+            displayFormable(path);
         });
         circle.addEventListener("mouseout", () => {
-            resetFormablesText();
+            resetFormables();
         });
         tile.textCircle = circle; // add the circle to the tile object
         tile.text = text; // add the text to the tile object
@@ -737,22 +818,75 @@ function getFormable(id){
     return null; // if no formable is found
 }
 
-function displayFormablesText(c){ // displays the number of troops that can be gained if controling the teritory
-
+function getCenterFormable(nations){ // gets the center of the formable territory
+    let xMax = -Infinity;
+    let xMin = Infinity;
+    let yMax = -Infinity;
+    let yMin = Infinity;
+    nations[0].forEach((nation) => {
+        let tile = allTiles.find(t => t.name === nation);
+        if (tile) {
+            let bbox = tile.path.getBBox();
+            xMax = Math.max(xMax, bbox.x + bbox.width);
+            xMin = Math.min(xMin, bbox.x);
+            yMax = Math.max(yMax, bbox.y + bbox.height);
+            yMin = Math.min(yMin, bbox.y);
+        }
+    });
+    return {x: (xMax + xMin) / 2, y: (yMax + yMin) / 2};    
 }
-// these two functions need to be called via a switch on the screen
-function resetFormablesText(){
 
+function displayFormable(p){ // displays the number of troops that can be gained if controling the teritory
+    if(!showForm){
+        return
+    }
+    let formable = null
+    allForm.forEach((oFormable) =>{
+        //console.log(oFormable)
+        if(oFormable[0].includes(p.id)){
+            formable = oFormable
+        }
+    })
+    //console.log(formable)
+    allTiles.forEach((cTile)=>{
+        if(formable[0].includes(cTile.name)){
+            //console.log("found")
+            cTile.path.setAttribute("stroke-width", "5")
+            cTile.textCircle.setAttribute("stroke-width", "3")
+        }
+    })
+    // showing the gain text
+    let text = document.createElementNS("http://www.w3.org/2000/svg", "text"); // later make through hidding and showing, not adding and removing
+    let size = window.innerWidth/10
+    text.setAttribute("font-size", `${size}px`)
+    text.setAttribute("id", "formableNum")
+    text.textContent = `+${formable[1]}`
+    text.setAttribute("fill", "black")
+    text.setAttribute("pointer-events", "none");
+    text.setAttribute("font-weight", "bold");
+    text.setAttribute("stroke", "white");
+    text.setAttribute("stroke-width", "0.5");
+    let coords = getCenterFormable([formable[0]]);
+    text.setAttribute("x", `${coords.x}`);
+    text.setAttribute("y", `${coords.y}`);
+    text.setAttribute("text-anchor", "middle");
+    let viewBox = document.querySelector('g[transform]');
+    viewBox.appendChild(text)
 }
 
-// all the message stuff will be here
-
-
-
+function resetFormables(){
+    allTiles.forEach((cTile)=>{
+        cTile.path.setAttribute("stroke-width", "1")
+        cTile.textCircle.setAttribute("stroke-width", "1")
+    })
+    let t = document.getElementById("formableNum")
+    if(t){
+        document.querySelector('g[transform]').removeChild(t)
+    }
+}
 
 document.body.addEventListener('click', () => {
     allTiles.forEach(path => {
       path.path.classList.remove('highlighted', 'dimmed', 'attackable');
-      //removeCopies();
     });
 });
